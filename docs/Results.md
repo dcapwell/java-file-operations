@@ -9,7 +9,10 @@ OS  : OS X 10.9.2
 CPU : 2.3 GHz Intel Core i7
 Mem : 16 GB
 
-## JNA
+## Oracle JDK 6
+## Oracle JDK 7
+
+### JNA
 
 ```
 Result: 73730.305 ±(99.9%) 1144.286 ops/s [Average]
@@ -23,7 +26,7 @@ Benchmark                                 Mode  Samples      Score      Error  U
 c.g.d.j.f.o.j.JNAFileOperations.chmod    thrpt      200  73730.305 ± 1144.286  ops/s
 ```
 
-## Fork
+### Fork
 
 ```
 Result: 366.856 ±(99.9%) 1.908 ops/s [Average]
@@ -38,7 +41,7 @@ c.g.d.j.f.o.f.ForkFileOperations.chmod      0777  thrpt      200  363.973 ± 2.3
 c.g.d.j.f.o.f.ForkFileOperations.chmod      0755  thrpt      200  366.856 ± 1.908  ops/s
 ```
 
-## Java 7 NIO
+### Java 7 NIO
 
 ```
 Result: 123764.016 ±(99.9%) 2202.005 ops/s [Average]
@@ -52,7 +55,7 @@ Benchmark                                  Mode  Samples       Score      Error 
 c.g.d.j.f.o.j.JavaFileOperations.chmod    thrpt      200  123764.016 ± 2202.005  ops/s
 ```
 
-## Java 6 Reflection
+### Java 6 Reflection
 
 ```
 Result: 120217.883 ±(99.9%) 1056.684 ops/s [Average]
@@ -67,7 +70,7 @@ c.g.d.j.f.o.j.JavaReflectFileOperations.chmod      0777  thrpt      200  121866.
 c.g.d.j.f.o.j.JavaReflectFileOperations.chmod      0755  thrpt      200  120217.883 ± 1056.684  ops/s
 ```
 
-## JNR-FFI
+### JNR-FFI
 
 ```
 Result: 128113.517 ±(99.9%) 1138.167 ops/s [Average]
@@ -82,7 +85,7 @@ c.g.d.j.f.o.j.f.JNRFFIFileOperations.chmod      0777  thrpt      200  130965.546
 c.g.d.j.f.o.j.f.JNRFFIFileOperations.chmod      0755  thrpt      200  128113.517 ± 1138.167  ops/s
 ```
 
-# Results
+### Results
 
 |       | JNR - FFI   | Java 7 NIO  | Java 6 Reflection | JNA        | Fork    |
 |-------|-------------|-------------|-------------------|------------|---------|
@@ -90,3 +93,6 @@ c.g.d.j.f.o.j.f.JNRFFIFileOperations.chmod      0755  thrpt      200  128113.517
 | avg   | 128,113.517 | 123,764.016 | 120,217.883       | 73,730.305 | 366.856 |
 | max   | 135,954.357 | 132,371.924 | 126,644.254       | 78,984.895 | 378.315 |
 | stdev |   4,819.072 |   9,323.428 |   4,474.066       |  4,844.977 |   8.078 |
+
+## Oracle JDK 8
+

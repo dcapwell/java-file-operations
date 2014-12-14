@@ -22,9 +22,25 @@ def currentJvm = org.gradle.internal.jvm.Jvm.current()
 def jvmVersion = currentJvm.javaVersion
 
 sourceSets {
-  test {
+  main {
     java {
       srcDir 'src/main/java'
+      if (jvmVersion.equals(org.gradle.api.JavaVersion.VERSION_1_6)) {
+        exclude '**/NIO**'
+      }
+    }
+  }
+  test {
+    java {
+      srcDir 'src/test/java'
+      if (jvmVersion.equals(org.gradle.api.JavaVersion.VERSION_1_6)) {
+        exclude '**/NIO**'
+      }
+    }
+  }
+  jmh {
+    java {
+      srcDir 'src/jmh/java'
       if (jvmVersion.equals(org.gradle.api.JavaVersion.VERSION_1_6)) {
         exclude '**/NIO**'
       }
@@ -38,12 +54,13 @@ test {
 
 
 dependencies {
-  testCompile 'org.testng:testng:6.8.8'
-  testCompile 'net.java.dev.jna:jna:4.1.0'
-  testCompile 'com.google.guava:guava:18.0'
-  testCompile 'com.github.jnr:jnr-ffi:1.0.5'
+  compile 'net.java.dev.jna:jna:4.1.0'
+  compile 'com.google.guava:guava:18.0'
+  compile 'com.github.jnr:jnr-ffi:1.0.5'
 
   jmh 'net.java.dev.jna:jna:4.1.0'
   jmh 'com.google.guava:guava:18.0'
   jmh 'com.github.jnr:jnr-ffi:1.0.5'
+
+  testCompile 'org.testng:testng:6.8.8'
 }
