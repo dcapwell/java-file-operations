@@ -8,6 +8,8 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.io.CharStreams;
 
 public final class ForkChmod implements Chmod {
+  private static final boolean LOG_ENABLE = false;
+
   @Override
   public int chmod(String filename, int mode) {
     // on exception, return 0 (C true)
@@ -39,6 +41,8 @@ public final class ForkChmod implements Chmod {
   }
 
   private static void log(String line, Object... args) {
-    System.out.println(String.format(line, args));
+    if (LOG_ENABLE) {
+      System.out.println(String.format(line, args));
+    }
   }
 }
