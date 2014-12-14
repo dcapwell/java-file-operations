@@ -203,11 +203,132 @@ c.g.d.j.f.o.j.f.JNRFFIFileOperations.chmod      0755  thrpt      200  128113.517
 ## Oracle JDK 8
 
 ### JNA
+
+```
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.dcapwell.java.file.operations.jna.JNAFileOperations.chmod
+# Parameters: (mode = 0777)
+
+Result: 87343.385 ±(99.9%) 1133.401 ops/s [Average]
+  Statistics: (min, avg, max) = (71765.724, 87343.385, 93730.569), stdev = 4798.890
+  Confidence interval (99.9%): [86209.984, 88476.786]
+
+c.g.d.j.f.o.jna.JNAFileOperations.chmod                0777  thrpt      200   87343.385 ± 1133.401  ops/s
+
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.dcapwell.java.file.operations.jna.JNAFileOperations.chmod
+# Parameters: (mode = 0755)
+
+Result: 86638.794 ±(99.9%) 1070.762 ops/s [Average]
+  Statistics: (min, avg, max) = (73207.869, 86638.794, 92129.627), stdev = 4533.673
+  Confidence interval (99.9%): [85568.032, 87709.556]
+
+c.g.d.j.f.o.jna.JNAFileOperations.chmod                0755  thrpt      200   86638.794 ± 1070.762  ops/s
+```
+
 ### Fork
+
+```
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.dcapwell.java.file.operations.fork.ForkFileOperations.chmod
+# Parameters: (mode = 0777)
+
+Result: 365.945 ±(99.9%) 1.711 ops/s [Average]
+  Statistics: (min, avg, max) = (323.416, 365.945, 374.957), stdev = 7.244
+  Confidence interval (99.9%): [364.234, 367.656]
+
+c.g.d.j.f.o.fork.ForkFileOperations.chmod              0777  thrpt      200     365.945 ±    1.711  ops/s
+
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.dcapwell.java.file.operations.fork.ForkFileOperations.chmod
+# Parameters: (mode = 0755)
+
+Result: 370.897 ±(99.9%) 0.621 ops/s [Average]
+  Statistics: (min, avg, max) = (361.824, 370.897, 376.926), stdev = 2.628
+  Confidence interval (99.9%): [370.276, 371.518]
+
+c.g.d.j.f.o.fork.ForkFileOperations.chmod              0755  thrpt      200     370.897 ±    0.621  ops/s
+```
+
 ### Java 7 NIO
+
+```
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.dcapwell.java.file.operations.java7.NIOFileOperations.chmod
+# Parameters: (mode = 0777)
+
+Result: 142571.112 ±(99.9%) 459.251 ops/s [Average]
+  Statistics: (min, avg, max) = (137750.333, 142571.112, 146470.899), stdev = 1944.499
+  Confidence interval (99.9%): [142111.860, 143030.363]
+
+c.g.d.j.f.o.java7.NIOFileOperations.chmod              0777  thrpt      200  142571.112 ±  459.251  ops/s
+
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.dcapwell.java.file.operations.java7.NIOFileOperations.chmod
+# Parameters: (mode = 0755)
+
+Result: 139128.632 ±(99.9%) 610.653 ops/s [Average]
+  Statistics: (min, avg, max) = (131039.028, 139128.632, 143501.308), stdev = 2585.542
+  Confidence interval (99.9%): [138517.979, 139739.284]
+
+c.g.d.j.f.o.java7.NIOFileOperations.chmod              0755  thrpt      200  139128.632 ±  610.653  ops/s
+```
+
 ### Java 6 Reflection
+
+```
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.dcapwell.java.file.operations.java6.JavaReflectFileOperations.chmod
+# Parameters: (mode = 0777)
+
+Result: 117908.791 ±(99.9%) 371.980 ops/s [Average]
+  Statistics: (min, avg, max) = (114049.902, 117908.791, 122723.562), stdev = 1574.986
+  Confidence interval (99.9%): [117536.811, 118280.770]
+
+c.g.d.j.f.o.java6.JavaReflectFileOperations.chmod      0777  thrpt      200  117908.791 ±  371.980  ops/s
+
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.dcapwell.java.file.operations.java6.JavaReflectFileOperations.chmod
+# Parameters: (mode = 0755)
+
+Result: 118241.793 ±(99.9%) 259.438 ops/s [Average]
+  Statistics: (min, avg, max) = (115431.920, 118241.793, 120863.695), stdev = 1098.477
+  Confidence interval (99.9%): [117982.355, 118501.231]
+
+c.g.d.j.f.o.java6.JavaReflectFileOperations.chmod      0755  thrpt      200  118241.793 ±  259.438  ops/s
+```
+
 ### JNR-FFI
+
+```
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.dcapwell.java.file.operations.jnr.ffi.JNRFFIFileOperations.chmod
+# Parameters: (mode = 0777)
+
+Result: 131783.975 ±(99.9%) 465.531 ops/s [Average]
+  Statistics: (min, avg, max) = (127609.852, 131783.975, 136323.269), stdev = 1971.087
+  Confidence interval (99.9%): [131318.444, 132249.506]
+
+c.g.d.j.f.o.jnr.ffi.JNRFFIFileOperations.chmod         0777  thrpt      200  131783.975 ±  465.531  ops/s
+
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.dcapwell.java.file.operations.jnr.ffi.JNRFFIFileOperations.chmod
+# Parameters: (mode = 0755)
+
+Result: 132850.674 ±(99.9%) 560.112 ops/s [Average]
+  Statistics: (min, avg, max) = (115244.014, 132850.674, 136843.854), stdev = 2371.547
+  Confidence interval (99.9%): [132290.562, 133410.786]
+
+c.g.d.j.f.o.jnr.ffi.JNRFFIFileOperations.chmod         0755  thrpt      200  132850.674 ±  560.112  ops/s
+```
 
 ### Results
 
 Numbers are from the param run that has the smallest stdev.
+
+|       | Java 7 NIO  | JNR - FFI   | Java 6 Reflection | JNA        | Fork    |
+|-------|-------------|-------------|-------------------|------------|---------|
+| min   | 137,750.333 | 127,609.852 | 115,431.920       | 73,207.869 | 361.824 |
+| avg   | 142,571.112 | 131,783.975 | 118,241.793       | 86,638.794 | 370.897 |
+| max   | 146,470.899 | 136,323.269 | 120,863.695       | 92,129.627 | 376.926 |
+| stdev | 1,944.499   | 1,971.087   | 1,098.477         | 4,533.673  | 2.628   |
