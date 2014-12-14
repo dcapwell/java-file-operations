@@ -56,7 +56,8 @@ public final class ChmodTest {
         new Object[] { new JNAChmod() },
         new Object[] { new ForkChmod() },
         new Object[] { new NIOChmod() },
-        new Object[] { new ReflectChmod() }
+        new Object[] { new ReflectChmod() },
+        new Object[] { new JNRFFIChmod() }
     };
   }
 }

@@ -19,8 +19,8 @@ task wrapper(type: Wrapper) {
 
 dependencies {
   testCompile 'org.testng:testng:6.8.8'
-  testCompile 'com.google.guava:guava:18.0'
 
   jmh 'net.java.dev.jna:jna:4.1.0'
   jmh 'com.google.guava:guava:18.0'
+  jmh 'com.github.jnr:jnr-ffi:1.0.5'
 }
