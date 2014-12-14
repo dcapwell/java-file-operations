@@ -12,13 +12,36 @@ repositories {
 }
 
 apply plugin: 'me.champeau.gradle.jmh'
+apply plugin: 'java'
 
 task wrapper(type: Wrapper) {
   gradleVersion = '2.1'
 }
 
+def currentJvm = org.gradle.internal.jvm.Jvm.current()
+def jvmVersion = currentJvm.javaVersion
+
+sourceSets {
+  test {
+    java {
+      srcDir 'src/main/java'
+      if (jvmVersion.equals(org.gradle.api.JavaVersion.VERSION_1_6)) {
+        exclude '**/NIO**'
+      }
+    }
+  }
+}
+
+test {
+  useTestNG()
+}
+
+
 dependencies {
   testCompile 'org.testng:testng:6.8.8'
+  testCompile 'net.java.dev.jna:jna:4.1.0'
+  testCompile 'com.google.guava:guava:18.0'
+  testCompile 'com.github.jnr:jnr-ffi:1.0.5'
 
   jmh 'net.java.dev.jna:jna:4.1.0'
   jmh 'com.google.guava:guava:18.0'

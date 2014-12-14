@@ -4,6 +4,25 @@ public final class Chmods {
   public static final int OK = 0;
   public static final int Bad = 1;
 
+  private static final String NIO_CLASS = "com.github.dcapwell.java.file.operations.NIOChmod";
+
+  public static boolean isNIOSupported() {
+    return createNIO() != null;
+  }
+
+  public static Chmod createNIO() {
+    try {
+      Class<?> clazz = Class.forName(NIO_CLASS);
+      return (Chmod) clazz.newInstance();
+    } catch (ClassNotFoundException e) {
+      return null;
+    } catch (InstantiationException e) {
+      return null;
+    } catch (IllegalAccessException e) {
+      return null;
+    }
+  }
+
   public static String toString(int mode) {
     StringBuilder sb = new StringBuilder(4);
     sb.append(0);

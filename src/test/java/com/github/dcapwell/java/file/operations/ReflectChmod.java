@@ -15,7 +15,7 @@ public final class ReflectChmod implements Chmod {
   @Override
   public int chmod(String filename, int mode) {
     try {
-      return (int) chmodMethod.invoke(null, filename, mode);
+      return ((Integer) chmodMethod.invoke(null, filename, mode)).intValue();
     } catch (IllegalAccessException e) {
       return Chmods.Bad;
     } catch (InvocationTargetException e) {

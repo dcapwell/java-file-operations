@@ -1,10 +1,13 @@
 package com.github.dcapwell.java.file.operations;
 
+import com.google.common.collect.Lists;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.util.Iterator;
+import java.util.List;
 
 public final class ChmodTest {
 
@@ -51,13 +54,17 @@ public final class ChmodTest {
   }
 
   @DataProvider
-  public static Object[][] chmods() throws NoSuchMethodException, ClassNotFoundException {
-    return new Object[][] {
-        new Object[] { new JNAChmod() },
-        new Object[] { new ForkChmod() },
-        new Object[] { new NIOChmod() },
-        new Object[] { new ReflectChmod() },
-        new Object[] { new JNRFFIChmod() }
-    };
+  public static Iterator<Object[]> chmods() throws NoSuchMethodException, ClassNotFoundException {
+    List<Object[]> mods = Lists.newArrayList(
+        new Object[]{new JNAChmod()},
+        new Object[]{new ForkChmod()},
+        new Object[]{new ReflectChmod()},
+        new Object[]{new JNRFFIChmod()}
+    );
+    // for java 6 support. NIO only works with java 7
+    if (Chmods.isNIOSupported()) {
+      mods.add(new Object[] { Chmods.createNIO() });
+    }
+    return mods.iterator();
   }
 }

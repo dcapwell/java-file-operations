@@ -10,7 +10,7 @@ import com.github.dcapwell.java.file.operations.Chmod;
 import com.github.dcapwell.java.file.operations.NIOChmod;
 
 @State(Scope.Thread)
-public class JavaFileOperations {
+public class NIOFileOperations {
   private static final Chmod CHMOD = new NIOChmod();
 
   private final String path = Files.tmpFile().getAbsolutePath();
