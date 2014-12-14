@@ -2,8 +2,6 @@
 
 These are the results for running across the different ways to do chmod.
 
-All results where run against Oracle Java 7 
-
 Hardware:
 OS  : OS X 10.9.2
 CPU : 2.3 GHz Intel Core i7
