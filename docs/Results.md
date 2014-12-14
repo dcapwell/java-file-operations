@@ -7,6 +7,14 @@ OS  : OS X 10.9.2
 CPU : 2.3 GHz Intel Core i7
 Mem : 16 GB
 
+## TL;DR
+
+|        | 1st       | 2nd        |
+|--------|-----------|------------|
+| Java 6 | JNR - FFI | Reflection |
+| Java 7 | JNR - FFI | NIO        |
+| Java 8 | NIO       | JNR - FFI  |
+
 ## Oracle JDK 6
 
 ### JNA
