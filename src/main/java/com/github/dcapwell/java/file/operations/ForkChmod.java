@@ -11,14 +11,14 @@ public final class ForkChmod implements Chmod {
   private static final boolean LOG_ENABLE = false;
 
   @Override
-  public int chmod(String filename, int mode) {
+  public boolean chmod(String filename, int mode) {
     // on exception, return 0 (C true)
     try {
-      return fork("/bin/chmod", Chmods.toString(mode), filename);
+      return fork("/bin/chmod", Chmods.toString(mode), filename) == Chmods.OK;
     } catch (IOException e) {
-      return Chmods.Bad;
+      return false;
     } catch (InterruptedException e) {
-      return Chmods.Bad;
+      return false;
     }
   }
 

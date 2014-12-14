@@ -19,7 +19,7 @@ public class ForkFileOperations {
   private int mode;
 
   @Benchmark
-  public int chmod() {
+  public boolean chmod() {
     return CHMOD.chmod(path, mode);
   }
 }

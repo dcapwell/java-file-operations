@@ -13,13 +13,13 @@ public final class ReflectChmod implements Chmod {
   }
 
   @Override
-  public int chmod(String filename, int mode) {
+  public boolean chmod(String filename, int mode) {
     try {
-      return ((Integer) chmodMethod.invoke(null, filename, mode)).intValue();
+      return ((Integer) chmodMethod.invoke(null, filename, mode)).intValue() == Chmods.OK;
     } catch (IllegalAccessException e) {
-      return Chmods.Bad;
+      return false;
     } catch (InvocationTargetException e) {
-      return Chmods.Bad;
+      return false;
     }
   }
 }

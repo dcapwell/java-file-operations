@@ -16,21 +16,27 @@ public final class ChmodTest {
     final File file = Files.tmpFile();
     final String name = file.getAbsolutePath();
 
-    int result;
+    boolean result;
 
     result = chmod.chmod(file.getAbsolutePath(), 0000);
-    Assert.assertEquals(result, Chmods.OK, "Returned false!");
+    Assert.assertTrue(result, "Returned false!");
 
     Assert.assertFalse(file.canExecute(), "Shouldn't be able to execute " + name);
     Assert.assertFalse(file.canRead(), "Shouldn't be able to read " + name);
     Assert.assertFalse(file.canWrite(), "Shouldn't be able to write " + name);
 
     result = chmod.chmod(file.getAbsolutePath(), 0777);
-    Assert.assertEquals(result, Chmods.OK, "Returned false!");
+    Assert.assertTrue(result, "Returned false!");
 
     Assert.assertTrue(file.canExecute(), "Should be able to execute " + name);
     Assert.assertTrue(file.canRead(), "Should be able to read " + name);
     Assert.assertTrue(file.canWrite(), "Should be able to write " + name);
+  }
+
+  @Test(dataProvider = "chmods")
+  public void chmodNonExistingFile(Chmod chmod) {
+    boolean result = chmod.chmod("/file/does/not/exist", 0777);
+    Assert.assertFalse(result, "Operation was successful?");
   }
 
   @Test

@@ -4,8 +4,8 @@ import jnr.ffi.LibraryLoader;
 
 public final class JNRFFIChmod implements Chmod {
   @Override
-  public int chmod(String filename, int mode) {
-    return POSIX.chmod(filename, mode);
+  public boolean chmod(String filename, int mode) {
+    return POSIX.chmod(filename, mode) == Chmods.OK;
   }
 
   // in JNA this can be private, in JNR-FFI this must be public

@@ -2,7 +2,6 @@ package com.github.dcapwell.java.file.operations;
 
 public final class Chmods {
   public static final int OK = 0;
-  public static final int Bad = 1;
 
   private static final String NIO_CLASS = "com.github.dcapwell.java.file.operations.NIOChmod";
 

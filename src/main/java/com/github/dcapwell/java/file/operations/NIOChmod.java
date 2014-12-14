@@ -19,12 +19,12 @@ import java.util.Set;
 
 public final class NIOChmod implements Chmod {
   @Override
-  public int chmod(String filename, int mode) {
+  public boolean chmod(String filename, int mode) {
     try {
       Files.setPosixFilePermissions(Paths.get(filename), convertToPermissionsSet(mode));
-      return Chmods.OK;
+      return true;
     } catch (IOException e) {
-      return Chmods.Bad;
+      return false;
     }
   }
 
